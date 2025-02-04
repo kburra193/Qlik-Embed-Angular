@@ -1,0 +1,8 @@
+<div class="banner container" *ngIf="combinedItems">
+  <h1>{{ title }}</h1>
+  <div class="grid">
+    <div class="col-2" *ngFor="let item of combinedItems">
+      <app-show-item [showItem]="item"></app-show-item>
+    </div>
+  </div>
+</div>

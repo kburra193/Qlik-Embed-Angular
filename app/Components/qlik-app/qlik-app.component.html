@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="header-container">
+    <h1>{{ title }}</h1>
+    <a class="view-all-btn" routerLink="/view-all-apps">View All</a>
+  </div>
+  <ng-container *ngIf="qlikApps">
+    <p-carousel
+      [value]="qlikApps"
+      [numVisible]="6"
+      [numScroll]="3"
+      [circular]="false"
+    >
+      <ng-template let-qlikApp pTemplate="item">
+        <div class="qlikApp">
+          <a
+            class="show-item"
+            *ngIf="qlikApp"
+            [href]="getDetailLink(qlikApp)"
+            [attr.target]="this.qlikApp.routeType === 'space' ? null : '_blank'"
+          >
+            <!--   <div class="show-item-rating">
+            <i class="pi pi-star"></i>
+            <span>{{ 10 }}</span>
+          </div>-->
+            <div class="show-item-image">
+              <img
+                [src]="qlikApp?.thumbnail || '../../../assets/images/logo.png'"
+                alt=""
+              />
+            </div>
+
+            <div class="show-item-title">
+              {{ qlikApp?.name }} <br />
+              <div class="show-item-type" *ngIf="qlikApp?.type">
+                {{ qlikApp?.type }}
+              </div>
+            </div>
+          </a>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </ng-container>
+  <ng-template #defaultActorImage>
+    <img
+      src="../../../assets/images/logo.png"
+      alt="actor.name"
+      class="actor-image"
+    />
+  </ng-template>
+</div>
+
+<!--<ng-container *ngIf="this.recentlyUsedApps">
+  <app-banner [title]="'Recently Used Apps'" [appNames]="recentlyUsedApps"></app-banner>
+</ng-container>
+<ng-container *ngIf="this.qlikAppnames">
+  <app-banner [title]="'Qlik Apps'" [appNames]="qlikAppnames"></app-banner>
+</ng-container>-->

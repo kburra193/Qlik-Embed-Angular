@@ -1,0 +1,13 @@
+
+<div class="spaces-wrapper">
+<div *ngIf="loading" class="loader-container">
+  <div class="loader"></div> <!-- This will be your loader animation -->
+</div>
+<ng-container *ngIf="!loading && qlikSpaces" class="spaces-container">
+  <app-banner [title]="'Qlik Spaces'" [spaces]="qlikSpaces"></app-banner>
+</ng-container>
+
+<div *ngIf="!loading && qlikSpaces.length === 0" class="no-data">
+  <p>No spaces available.</p>
+</div>
+</div>

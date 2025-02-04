@@ -1,0 +1,25 @@
+<a
+  class="show-item"
+  *ngIf="showItem"
+  [href]="getDetailLink()"
+  (click)="RecentClick()"
+  [attr.target]="this.showItem.routeType === 'space' ? '_blank' : '_blank'"
+>
+  <!--   <div class="show-item-rating">
+    <i class="pi pi-star"></i>
+    <span>{{ 10 }}</span>
+  </div>-->
+  <div class="show-item-image">
+    <img
+      [src]="showItem?.thumbnail || '../../../assets/images/logo.png'"
+      alt=""
+    />
+  </div>
+
+  <div class="show-item-title">
+    {{ showItem?.name }} <br />
+    <div class="show-item-type" *ngIf="showItem?.type">
+      {{ showItem?.type }}
+    </div>
+  </div>
+</a>

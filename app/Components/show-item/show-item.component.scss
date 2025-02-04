@@ -1,0 +1,51 @@
+.show-item {
+  display: block;
+  //height: 425px;
+  position: relative;
+  border: 1px solid #999;
+  &-image {
+    height: 170px;
+    img {
+      width: 100%;
+      //height: 375px;
+      object-fit: cover;
+      border-radius: 5px 5px 0 0;
+    }
+  }
+  &-rating {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 10px;
+    left: 10px;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px 10px;
+
+    .pi {
+      font-size: 1.2rem;
+      color: orange;
+      margin-right: 5px;
+    }
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    height: 48px;
+    background-color: black;
+    border-radius: 0 5px 5px 0;
+    padding: 0 10px;
+  }
+  &-type {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;           // Slightly smaller than the title
+    color: #888;                 // Muted gray color
+    font-style: italic;          // Optional: gives a more subtle, muted tone
+    border-radius: 0 5px 5px 0;
+    padding: 0 10px;
+  }
+
+}

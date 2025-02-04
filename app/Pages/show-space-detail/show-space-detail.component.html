@@ -1,0 +1,54 @@
+<ng-container *ngIf="this.space">
+  <p-tabView>
+    <p-tabPanel header="Overview">
+      <div class="grid">
+        <div class="col-3">
+          <img
+            src="../../../assets/images/logo.png"
+            alt="Show Image"
+            class="poster"
+          />
+        </div>
+        <div class="col-9">
+          <h2>Overview</h2>
+
+          <div class="stat">
+            <div class="label">Space Name:</div>
+            <div class="value">
+              {{ this.space?.name }}
+            </div>
+          </div>
+          <div class="stat">
+            <div class="label">Created At:</div>
+            <div class="value">
+              {{ formatDate(this.space?.createdAt) }}
+            </div>
+          </div>
+          <div class="stat">
+            <div class="label">Description:</div>
+            <div class="value">
+              {{ this.space?.description }}
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="label">Type:</div>
+            <div class="value">
+              {{ this.space?.type }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Apps">
+      <ng-container *ngIf="this.qlikAppsBySpaceId.length != 0">
+        <div class="grid">
+          <app-banner
+            [title]="'Qlik Apps'"
+            [appNames]="this.qlikAppsBySpaceId"
+          ></app-banner>
+        </div>
+      </ng-container>
+    </p-tabPanel>
+  </p-tabView>
+</ng-container>
